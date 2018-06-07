@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<style>
+   .a{float: left; width: 50px; height: 50px; border: solid red 1px;}
+   .box{width: 300px; height: 300px; border: solid red 1px; position:fixed; z-index:99; background:#FFF;}
+   .clear{clear: both}
+   .box div{width: 100px; height: 30px; border: solid red 1px; margin-top: 3px;}
+   .tc{ width:100%; height:100%; background:#000; opacity:0.5; display:none; position:fixed; left:0; top:0; z-index:1;}
+   .close{ position:relative; z-index:99;}
+</style>
+<script src="jquery.js"></script>
+    
+<body>   
+<div class="lb">1</div>
+<div class="lb">2</div>
+<div class="lb">3</div>
+<div class="lb">4</div>
+<div class="clear"></div>
+<div class="close">X</div>
+<div class="tc"></div>
+<div class="box">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div>    
+      </div>
+      <script>
+         $(function(){
+            arr=[['哈哈1','呵呵1','嘿嘿1','aa1'],['哈哈2','呵呵2','嘿嘿2','aa2'],['哈哈3','呵呵3','嘿嘿3','aa3'],['哈哈4','呵呵4','嘿嘿4','aa4']];
+            $('.lb').click(function(){
+				$('.box').show();
+				$(".close").show();
+               var i = $(this).index();
+               for(j=0;j<arr[i].length;j++){
+                  $('.box div').eq(j).text(arr[i][j]);
+				 $('.tc').show();
+			$(".close").click(function(){
+			$(".box").hide();
+			$(".close").hide();
+			$(".tc").hide();
+			 return false;
+			})
+		
+               }
+			   	
+            })
+			
+         })
+      </script>
+</body>
+</html>
